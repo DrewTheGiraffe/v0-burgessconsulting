@@ -11,7 +11,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-screen pt-24 md:pt-32 flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen pt-32 md:pt-40 flex items-center justify-center overflow-hidden bg-background">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl opacity-30 animate-pulse"></div>
@@ -26,9 +26,11 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 text-center">
         <div
-          className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          className={`transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
         >
           {/* Badge */}
           <div className="inline-block mb-6 md:mb-8">
@@ -38,34 +40,38 @@ export default function Hero() {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 md:mb-6 text-balance">
-            Precision in{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-accent to-accent/80">
-              Security & Innovation
-            </span>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-6 md:mb-8 text-balance text-foreground">
+            Enterprise Security
+            <br />
+            <span className="text-accent">Engineered for Innovation</span>
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 md:mb-12 max-w-2xl mx-auto text-balance">
-            Cybersecurity expertise meets cutting-edge AI engineering and quantum computing solutions for enterprises
-            demanding absolute precision.
+          <p className="text-lg md:text-xl text-muted-foreground mb-10 md:mb-12 max-w-3xl mx-auto text-balance leading-relaxed">
+            Cybersecurity, AI, and quantum computing solutions designed for enterprises that demand precision and
+            foresight.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="px-6 md:px-8 py-3 md:py-4 bg-accent text-background rounded-lg font-semibold hover:bg-accent/90 transition-all hover:shadow-lg hover:shadow-accent/20 group flex items-center gap-2">
-              Explore Our Work
+            <button className="px-8 py-3 md:py-4 bg-accent text-accent-foreground rounded-lg font-medium hover:bg-primary transition-all duration-200 group flex items-center gap-2">
+              Learn More
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="px-6 md:px-8 py-3 md:py-4 border border-accent/30 text-accent rounded-lg font-semibold hover:bg-accent/10 transition-all hover:border-accent/50">
+            <button className="px-8 py-3 md:py-4 border border-foreground/20 text-foreground rounded-lg font-medium hover:border-foreground/40 transition-all duration-200">
               Get in Touch
             </button>
           </div>
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <svg className="w-6 h-6 text-accent/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+          <svg
+            className="w-5 h-5 text-muted-foreground opacity-60 animate-bounce"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </div>

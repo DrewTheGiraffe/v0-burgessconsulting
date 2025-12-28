@@ -4,77 +4,73 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-card border-t border-accent/10 py-12 md:py-16">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-          {/* Brand */}
+    <footer className="bg-background border-t border-border py-12 md:py-16">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
           <div>
-            <h3 className="font-bold text-foreground mb-4">Burgess Consulting</h3>
-            <p className="text-sm text-muted-foreground">
-              Enterprise security solutions with advanced AI and quantum computing capabilities.
+            <h3 className="font-semibold text-foreground mb-4 text-sm">Burgess Consulting</h3>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Enterprise security with AI and quantum computing.
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="font-semibold text-foreground mb-4 text-sm">Services</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <ul className="space-y-2 text-xs text-muted-foreground">
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
+                <a href="#" className="hover:text-foreground transition-colors">
                   Cybersecurity
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
+                <a href="#" className="hover:text-foreground transition-colors">
                   AI Engineering
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
+                <a href="#" className="hover:text-foreground transition-colors">
                   Quantum Computing
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Resources */}
           <div>
             <h4 className="font-semibold text-foreground mb-4 text-sm">Resources</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <ul className="space-y-2 text-xs text-muted-foreground">
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
+                <a href="#" className="hover:text-foreground transition-colors">
                   Documentation
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
+                <a href="#" className="hover:text-foreground transition-colors">
                   Blog
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
+                <a href="#" className="hover:text-foreground transition-colors">
                   Case Studies
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Legal */}
           <div>
             <h4 className="font-semibold text-foreground mb-4 text-sm">Legal</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <ul className="space-y-2 text-xs text-muted-foreground">
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
-                  Privacy Policy
+                <a href="#" className="hover:text-foreground transition-colors">
+                  Privacy
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
-                  Terms of Service
+                <a href="#" className="hover:text-foreground transition-colors">
+                  Terms
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
+                <a href="#" className="hover:text-foreground transition-colors">
                   Contact
                 </a>
               </li>
@@ -82,21 +78,19 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-accent/10 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-muted-foreground">© {currentYear} Burgess Consulting. All rights reserved.</p>
-            <div className="flex gap-6">
-              <a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">
-                Twitter
-              </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">
-                LinkedIn
-              </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">
-                GitHub
-              </a>
-            </div>
+        {/* Bottom section */}
+        <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-muted-foreground">© {currentYear} Burgess Consulting. All rights reserved.</p>
+          <div className="flex gap-6">
+            <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+              Twitter
+            </a>
+            <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+              LinkedIn
+            </a>
+            <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+              GitHub
+            </a>
           </div>
         </div>
       </div>

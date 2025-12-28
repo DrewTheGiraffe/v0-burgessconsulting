@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Mail, Linkedin, Github, ArrowRight } from "lucide-react"
 
@@ -19,31 +18,19 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
     console.log(formData)
   }
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-background relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-accent/5 rounded-full blur-3xl"></div>
-
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section header */}
-        <div className="text-center mb-12 md:mb-16">
-          <p className="text-sm font-semibold text-accent uppercase tracking-widest mb-4">Get in Touch</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Let's Discuss Your Security Needs</h2>
-          <p className="text-muted-foreground text-lg">
-            Ready to elevate your enterprise security posture? Our team is ready to help.
-          </p>
+    <section id="contact" className="py-24 md:py-32 bg-card border-t border-border">
+      <div className="max-w-3xl mx-auto px-6 lg:px-8">
+        <div className="text-center mb-16 md:mb-20">
+          <h2 className="text-4xl md:text-5xl font-semibold text-foreground mb-4">Let's Work Together</h2>
+          <p className="text-muted-foreground text-lg">Have a project in mind? We'd love to discuss how we can help.</p>
         </div>
 
-        {/* Contact form */}
-        <form
-          onSubmit={handleSubmit}
-          className="bg-card/50 backdrop-blur-sm border border-accent/20 rounded-2xl p-8 md:p-12 mb-12"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <form onSubmit={handleSubmit} className="space-y-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                 Name
@@ -54,7 +41,7 @@ export default function Contact() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-background border border-accent/20 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all"
+                className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/30 transition-all"
                 placeholder="Your name"
               />
             </div>
@@ -68,13 +55,13 @@ export default function Contact() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-background border border-accent/20 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all"
+                className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/30 transition-all"
                 placeholder="your@email.com"
               />
             </div>
           </div>
 
-          <div className="mb-6">
+          <div>
             <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
               Message
             </label>
@@ -83,54 +70,55 @@ export default function Contact() {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              rows={6}
-              className="w-full px-4 py-3 bg-background border border-accent/20 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all resize-none"
+              rows={5}
+              className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/30 transition-all resize-none"
               placeholder="Tell us about your project..."
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="w-full px-6 py-4 bg-accent text-background rounded-lg font-semibold hover:bg-accent/90 transition-all hover:shadow-lg hover:shadow-accent/20 flex items-center justify-center gap-2 group"
+            className="w-full px-6 py-4 bg-accent text-accent-foreground rounded-lg font-medium hover:bg-primary transition-all duration-200 flex items-center justify-center gap-2 group"
           >
             Send Message
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </button>
         </form>
 
-        {/* Contact info */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          <div className="text-center">
-            <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-              <Mail className="w-6 h-6 text-accent" />
+        <div className="border-t border-border pt-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+            <div>
+              <div className="flex items-center gap-3 mb-3">
+                <Mail className="w-5 h-5 text-accent" />
+                <h3 className="font-medium text-foreground">Email</h3>
+              </div>
+              <a
+                href="mailto:hello@burgessconsulting.org"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                hello@burgessconsulting.org
+              </a>
             </div>
-            <h3 className="font-semibold text-foreground mb-2">Email</h3>
-            <a
-              href="mailto:hello@burgessconsulting.org"
-              className="text-muted-foreground hover:text-accent transition-colors"
-            >
-              hello@burgessconsulting.org
-            </a>
-          </div>
 
-          <div className="text-center">
-            <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-              <Linkedin className="w-6 h-6 text-accent" />
+            <div>
+              <div className="flex items-center gap-3 mb-3">
+                <Linkedin className="w-5 h-5 text-accent" />
+                <h3 className="font-medium text-foreground">LinkedIn</h3>
+              </div>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                Connect with us
+              </a>
             </div>
-            <h3 className="font-semibold text-foreground mb-2">LinkedIn</h3>
-            <a href="#" className="text-muted-foreground hover:text-accent transition-colors">
-              Connect with us
-            </a>
-          </div>
 
-          <div className="text-center">
-            <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-              <Github className="w-6 h-6 text-accent" />
+            <div>
+              <div className="flex items-center gap-3 mb-3">
+                <Github className="w-5 h-5 text-accent" />
+                <h3 className="font-medium text-foreground">GitHub</h3>
+              </div>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                View our code
+              </a>
             </div>
-            <h3 className="font-semibold text-foreground mb-2">GitHub</h3>
-            <a href="#" className="text-muted-foreground hover:text-accent transition-colors">
-              View our code
-            </a>
           </div>
         </div>
       </div>
