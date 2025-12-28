@@ -1,6 +1,7 @@
 "use client"
 
 import { useRef, useEffect, useState } from "react"
+import { useParallax } from "@/hooks/use-scroll-animation"
 
 const portfolioItems = [
   {
@@ -23,6 +24,7 @@ const portfolioItems = [
 export default function Portfolio() {
   const ref = useRef(null)
   const [isInView, setIsInView] = useState(false)
+  const { offset } = useParallax(0.15)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -42,7 +44,7 @@ export default function Portfolio() {
   }, [])
 
   return (
-    <section id="portfolio" className="py-24 md:py-32 bg-background border-t border-border" ref={ref}>
+    <section id="portfolio" className="py-24 md:py-32 bg-background border-t border-border overflow-hidden" ref={ref}>
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <div className="mb-16 md:mb-24">
           <h2 className="text-4xl md:text-5xl font-semibold text-foreground">Featured Projects</h2>
@@ -52,10 +54,13 @@ export default function Portfolio() {
           {portfolioItems.map((item, index) => (
             <div
               key={index}
-              className={`transition-all duration-700 ${
+              className={`transition-all duration-700 scroll-animate ${
                 isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              style={{
+                transitionDelay: `${index * 100}ms`,
+                transform: `translateY(${offset * (0.25 + index * 0.1)}px)`,
+              }}
             >
               <div className="p-8 border border-border rounded-lg hover:border-accent/30 transition-all duration-200 group cursor-pointer h-full flex flex-col">
                 <p className="text-xs font-medium text-accent uppercase tracking-wider mb-3">{item.category}</p>

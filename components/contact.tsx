@@ -1,15 +1,34 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { Mail, Linkedin, Github, ArrowRight } from "lucide-react"
 
 export default function Contact() {
+  const ref = useRef(null)
+  const [isInView, setIsInView] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   })
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true)
+        }
+      },
+      { threshold: 0.2 },
+    )
+
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -22,9 +41,13 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-card border-t border-border">
+    <section id="contact" className="py-24 md:py-32 bg-card border-t border-border" ref={ref}>
       <div className="max-w-3xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16 md:mb-20">
+        <div
+          className={`text-center mb-16 md:mb-20 transition-all duration-1000 ${
+            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
           <h2 className="text-4xl md:text-5xl font-semibold text-foreground mb-4">Let's Work Together</h2>
           <p className="text-muted-foreground text-lg">Have a project in mind? We'd love to discuss how we can help.</p>
         </div>

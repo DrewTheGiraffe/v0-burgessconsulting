@@ -2,26 +2,34 @@
 
 import { useEffect, useState } from "react"
 import { ArrowRight } from "lucide-react"
+import { useParallax } from "@/hooks/use-scroll-animation"
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false)
+  const { elementRef, offset } = useParallax(0.3)
 
   useEffect(() => {
     setIsVisible(true)
   }, [])
 
   return (
-    <section className="relative min-h-screen pt-32 md:pt-40 flex items-center justify-center overflow-hidden bg-background">
+    <section
+      ref={elementRef as any}
+      className="relative min-h-screen pt-32 md:pt-40 flex items-center justify-center overflow-hidden bg-background"
+    >
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl opacity-30 animate-pulse"></div>
         <div
-          className="absolute bottom-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl opacity-20 animate-pulse"
-          style={{ animationDelay: "1s" }}
+          className="absolute top-20 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl opacity-30 animate-pulse parallax-element"
+          style={{ transform: `translateY(${offset * 0.5}px)` }}
         ></div>
         <div
-          className="absolute top-1/2 right-1/4 w-80 h-80 bg-accent/8 rounded-full blur-3xl opacity-25 animate-pulse"
-          style={{ animationDelay: "2s" }}
+          className="absolute bottom-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl opacity-20 animate-pulse parallax-element"
+          style={{ animationDelay: "1s", transform: `translateY(${offset * 0.3}px)` }}
+        ></div>
+        <div
+          className="absolute top-1/2 right-1/4 w-80 h-80 bg-accent/8 rounded-full blur-3xl opacity-25 animate-pulse parallax-element"
+          style={{ animationDelay: "2s", transform: `translateY(${offset * 0.4}px)` }}
         ></div>
       </div>
 

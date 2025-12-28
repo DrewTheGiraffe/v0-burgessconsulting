@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from "react"
 import { Lock, Brain, Zap } from "lucide-react"
+import { useParallax } from "@/hooks/use-scroll-animation"
 
 const expertiseAreas = [
   {
@@ -27,6 +28,7 @@ const expertiseAreas = [
 export default function Expertise() {
   const ref = useRef(null)
   const [isInView, setIsInView] = useState(false)
+  const { offset } = useParallax(0.25)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -46,7 +48,7 @@ export default function Expertise() {
   }, [])
 
   return (
-    <section id="expertise" className="py-24 md:py-32 bg-card border-t border-border" ref={ref}>
+    <section id="expertise" className="py-24 md:py-32 bg-card border-t border-border overflow-hidden" ref={ref}>
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <div className="mb-16 md:mb-24">
           <h2 className="text-4xl md:text-5xl font-semibold text-foreground">Our Expertise</h2>
@@ -61,12 +63,15 @@ export default function Expertise() {
             return (
               <div
                 key={index}
-                className={`transition-all duration-700 transform ${
+                className={`transition-all duration-700 transform scroll-animate ${
                   isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
+                style={{
+                  transitionDelay: `${index * 100}ms`,
+                  transform: `translateY(${offset * (0.3 - index * 0.05)}px)`,
+                }}
               >
-                <div className="p-8 border border-border rounded-lg group hover:border-accent/30 transition-all duration-200">
+                <div className="p-8 border border-border rounded-lg group hover:border-accent/30 transition-all duration-200 h-full">
                   {/* Icon */}
                   <div className="mb-6">
                     <Icon className="w-8 h-8 text-accent" />

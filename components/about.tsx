@@ -1,10 +1,12 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { useParallax } from "@/hooks/use-scroll-animation"
 
 export default function About() {
-  const [isInView, setIsInView] = useState(false)
   const ref = useRef(null)
+  const [isInView, setIsInView] = useState(false)
+  const { offset } = useParallax(0.2)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -24,14 +26,15 @@ export default function About() {
   }, [])
 
   return (
-    <section id="about" className="py-24 md:py-32 bg-background border-t border-border">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8" ref={ref}>
+    <section id="about" className="py-24 md:py-32 bg-background border-t border-border overflow-hidden" ref={ref}>
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start">
           {/* Left side - Content */}
           <div
-            className={`transition-all duration-1000 ${
+            className={`transition-all duration-1000 scroll-animate ${
               isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
+            style={{ transform: `translateX(-${offset * 0.2}px)` }}
           >
             <h2 className="text-4xl md:text-5xl font-semibold leading-tight mb-8 text-foreground">
               Precision Security Meets Innovation
@@ -48,11 +51,12 @@ export default function About() {
             </p>
           </div>
 
+          {/* Right side - Stats */}
           <div
-            className={`transition-all duration-1000 ${
+            className={`transition-all duration-1000 scroll-animate ${
               isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
-            style={{ transitionDelay: "100ms" }}
+            style={{ transitionDelay: "100ms", transform: `translateX(${offset * 0.2}px)` }}
           >
             <div className="space-y-8">
               {[

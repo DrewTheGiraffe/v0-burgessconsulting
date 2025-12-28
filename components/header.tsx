@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
+import BurgessLogo from "./burgess-logo"
 
 interface HeaderProps {
   scrolled: boolean
@@ -26,8 +27,10 @@ export default function Header({ scrolled }: HeaderProps) {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 md:h-16">
-          {/* Logo - minimalist */}
-          <Link href="/" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-foreground/5 group-hover:bg-foreground/10 transition-colors duration-300">
+              <BurgessLogo className="w-5 h-5 text-foreground" />
+            </div>
             <span className="text-foreground font-semibold text-sm tracking-tight">Burgess</span>
           </Link>
 
