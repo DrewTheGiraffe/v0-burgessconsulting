@@ -21,17 +21,17 @@
 ### 3. Domain Registrar Setup
 - Update your domain's DNS records to point to GitHub Pages:
   - For APEX domain (burgessconsulting.org):
-    ```
+    \`\`\`
     A records:
     185.199.108.153
     185.199.109.153
     185.199.110.153
     185.199.111.153
-    ```
+    \`\`\`
   - For www subdomain (optional):
-    ```
+    \`\`\`
     CNAME record: your-username.github.io
-    ```
+    \`\`\`
 
 ### 4. SSL/HTTPS
 - GitHub Pages automatically provides SSL/HTTPS
@@ -43,11 +43,11 @@
 - Check GitHub Actions tab to monitor deployment status
 
 ## File Structure
-```
+\`\`\`
 .github/workflows/deploy.yml    # Deployment workflow
 public/CNAME                    # Custom domain configuration
 out/                            # Generated static files (after build)
-```
+\`\`\`
 
 ## Troubleshooting
 - If deployment fails, check GitHub Actions logs for errors
